@@ -1,0 +1,19 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: prod
+resources:
+- ../base
+
+patchesStrategicMerge:
+- deployment.yaml
+- service.yaml
+configMapGenerator:
+- name: username
+  behavior: merge
+  literals:
+  - username=admin-prod
+- name: pass
+  behavior: merge
+  files:
+  - username.pass
+
