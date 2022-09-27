@@ -4,7 +4,6 @@ namespace: qa
 resources:
 - ../base/
 - pod.yaml
-namespace: qa
 commonLabels:
   env: qa
 nameSuffix: -qa  
